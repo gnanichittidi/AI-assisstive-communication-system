@@ -1,1 +1,0 @@
-# AI-assisstive-communication-system

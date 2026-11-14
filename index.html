@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assistive Communication System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">AssistiveAI</div>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#about">About</a>
+        </div>
+
+        
+<label for="siteLanguage">Choose Language / భాషను ఎంచుకోండి</label>
+
+<select id="siteLanguage" aria-label="Choose website language">
+    <option value="en">🇬🇧 English</option>
+    <option value="te">🇮🇳 తెలుగు</option>
+    <option value="hi">🇮🇳 हिन्दी</option>
+    <option value="kn">🇮🇳 ಕನ್ನಡ</option>
+</select>
+
+    </nav>
+
+<!-- Voice Assistant -->
+<section class="voice-assistant" id="voiceAssistant">
+
+    <div class="assistant-heading">
+        <div>
+            <span class="assistant-label">SMART ACCESSIBILITY</span>
+            <h2>Voice Assistant</h2>
+            <p>Control your website using your voice.</p>
+        </div>
+
+        <div class="assistant-icon">🎙️</div>
+    </div>
+
+    <div class="assistant-controls">
+
+        <button id="startAssistant" class="voice-start">
+            🎤 Start Voice Assistant
+        </button>
+
+        <button id="stopAssistant" class="voice-stop" disabled>
+            Stop Assistant
+        </button>
+
+    </div>
+
+    <p id="assistantStatus" role="status" aria-live="polite">
+        Assistant is currently inactive.
+    </p>
+
+    <div class="assistant-help">
+        <strong>How to use:</strong>
+        <p>1. Start the assistant.</p>
+        <p>2. Say "Hello Assistant".</p>
+        <p>3. Give your command after the wake word.</p>
+        <p>4. Say "Stop Assistant" to end the session.</p>
+    </div>
+
+</section>
+
+
+    <header id="home">
+        <h1 data-i18n="Welcome to AI Assistive Communication System">
+    Welcome to AI Assistive Communication System
+</h1>
+        <p>Breaking Communication Barriers with Technology</p>
+    </header>
+
+    <main>
+
+        
+
+
+
+        <section class="features" id="features">
+
+            
+                <div class="card" data-feature="speech"></div>
+                <div class="feature-icon">🎤</div>
+                <h3>Speech to Text</h3>
+                <p>Convert spoken words into written text instantly.</p>
+                <button onclick="openFeature('speech')">Explore Feature</button>
+            </div>
+
+            <div class="card" data-feature="text"></div>
+                <div class="feature-icon">🔊</div>
+                <h3>Text to Speech</h3>
+                <p>Convert written messages into natural voice.</p>
+                <button onclick="openFeature('text')">Explore Feature</button>
+            </div>
+
+            <div class="card" data-feature="image"></div>
+                <div class="feature-icon">📷</div>
+                <h3>Smart Image Reader</h3>
+                <p>Extract text from images and listen to the content.</p>
+                <button onclick="openFeature('image')">Explore Feature</button>
+            </div>
+
+            <div class="card" data-feature="quick"></div>
+                <div class="feature-icon">💬</div>
+                <h3>Quick Communication</h3>
+                <p>Communicate using ready-made messages.</p>
+                <button onclick="openFeature('quick')">Explore Feature</button>
+            </div>
+
+        </section>
+
+        <section class="about" id="about">
+            <h2>Technology for Everyone</h2>
+            <p>
+                Our goal is to make communication easier
+                for people with different communication needs.
+            </p>
+        </section>
+
+<!-- SPEECH TO TEXT MODULE -->
+
+<section class="speech-module" id="speechModule">
+
+    <h2>Speech to Text</h2>
+
+    <p>Speak in your preferred language and see your words appear below.</p>
+
+    <label for="speechLanguage">Choose your language</label>
+
+    <select id="speechLanguage">
+        <option value="en-US">English</option>
+        <option value="te-IN">Telugu</option>
+        <option value="hi-IN">Hindi</option>
+        <option value="kn-IN">Kannada</option>
+    </select>
+
+    <button data-i18n="Speech to Text">Speech to Text</button>
+
+<button data-i18n="Text to Speech">Text to Speech</button>
+
+<button data-i18n="Smart Image Reader">Smart Image Reader</button>
+
+<button data-i18n="Voice Assistant">Voice Assistant</button>
+    <p id="speechStatus" role="status" aria-live="polite">
+        Ready to listen.
+    </p>
+
+    <textarea
+    data-i18n-placeholder="Enter your text"
+    placeholder="Enter your text">
+</textarea>
+
+    <button id="copySpeech">Copy Text</button>
+
+</section>
+
+<!-- TEXT TO SPEECH MODULE -->
+
+<section class="tts-module" id="textToSpeechModule">
+
+    <h2>Text to Speech</h2>
+
+    <p>Enter text and listen to it in your preferred language.</p>
+
+    <label for="ttsLanguage">Choose Language</label>
+
+    <select id="ttsLanguage">
+        <option value="en-US">English</option>
+        <option value="te-IN">Telugu</option>
+        <option value="hi-IN">Hindi</option>
+        <option value="kn-IN">Kannada</option>
+    </select>
+
+    <label for="ttsInput">Enter your text</label>
+
+    <textarea
+        id="ttsInput"
+        rows="6"
+        placeholder="Type your message here..."
+        aria-label="Text to be spoken"
+    ></textarea>
+
+    <div class="tts-buttons">
+        <button id="speakText">🔊 Speak Text</button>
+        <button id="pauseSpeech">Pause</button>
+        <button id="resumeSpeech">Resume</button>
+        <button id="stopSpeechOutput">Stop</button>
+        <button id="clearTTS">Clear</button>
+    </div>
+
+    <p id="ttsStatus" role="status" aria-live="polite">
+        Ready to speak.
+    </p>
+
+</section>
+
+<!-- SMART IMAGE READER MODULE -->
+
+<section class="image-reader-module" id="imageReaderModule">
+
+    <h2>Smart Image Reader</h2>
+
+    <p>
+        Upload an image containing text.
+        Our system will extract the text and read it aloud.
+    </p>
+
+    <label for="imageLanguage">Select image text language</label>
+
+    <select id="imageLanguage">
+        <option value="eng">English</option>
+        <option value="tel">Telugu</option>
+        <option value="hin">Hindi</option>
+        <option value="kan">Kannada</option>
+    </select>
+
+    <label for="imageUpload">Choose an image</label>
+
+    <input
+        type="file"
+        id="imageUpload"
+        accept="image/png,image/jpeg,image/webp"
+    >
+
+    <div class="image-preview-container">
+        <img
+            id="imagePreview"
+            alt="Preview of uploaded image"
+            hidden
+        >
+    </div>
+
+    <button id="extractImageText">
+        Extract Text
+    </button>
+
+    <p id="imageStatus" role="status" aria-live="polite">
+        Ready to upload an image.
+    </p>
+
+    <label for="extractedText">Extracted text</label>
+
+    <textarea
+        id="extractedText"
+        rows="7"
+        placeholder="Extracted text will appear here..."
+        aria-label="Text extracted from image"
+    ></textarea>
+
+    <div class="image-reader-buttons">
+
+        <button id="readImageText">
+            🔊 Read Aloud
+        </button>
+
+        <button id="stopImageSpeech">
+            Stop Reading
+        </button>
+
+        <button id="copyImageText">
+            Copy Text
+        </button>
+
+        <button id="clearImage">
+            Clear
+        </button>
+
+    </div>
+
+</section>
+
+
+
+    </main>
+
+    <footer>
+        <p>AI Assistive Communication System | Developed by Our Team</p>
+    </footer>
+
+
+
+<script src="language.js"></script>
+
+<script src="app.js"></script>
+
+<script src="modules/speech-to-text.js"></script>
+
+<script src="modules/text-to-speech.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+
+<script src="modules/image-to-text.js"></script>
+
+<script src="modules/Voice-assistant.js"></script>
+
+</body>
+</html>
